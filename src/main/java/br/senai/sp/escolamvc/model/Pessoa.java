@@ -10,6 +10,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.OffsetDateTime;
+import java.util.List;
 
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(
@@ -45,5 +46,8 @@ public class Pessoa {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Telefone> telefones;
 
 }
